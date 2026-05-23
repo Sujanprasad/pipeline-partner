@@ -127,3 +127,22 @@ export const recentActivities = [
   { id: "a4", user: "Rohan Kapoor", action: "scheduled follow-up", target: "Larsen & Toubro", time: "5 hr ago" },
   { id: "a5", user: "Sneha Iyer", action: "logged a meeting note", target: "Ashok Leyland", time: "Yesterday" },
 ];
+
+export type NotificationType = "deal" | "lead" | "followup" | "mention" | "system";
+
+export interface AppNotification {
+  id: string;
+  type: NotificationType;
+  title: string;
+  body: string;
+  time: string;
+  read: boolean;
+}
+
+export const notificationsSeed: AppNotification[] = [
+  { id: "n1", type: "deal",     title: "Deal won — Reliance Industries", body: "Vikram Singh closed a ₹22L deal.",         time: "5 min ago", read: false },
+  { id: "n2", type: "followup", title: "Follow-up due today",             body: "Call with Rajesh Kumar at 10:30 AM.",      time: "1 hr ago",  read: false },
+  { id: "n3", type: "lead",     title: "New lead assigned",                body: "Larsen & Toubro assigned to Rohan.",       time: "2 hr ago",  read: false },
+  { id: "n4", type: "mention",  title: "Priya mentioned you",              body: "“@Aarav can you join the Bajaj demo?”",   time: "4 hr ago",  read: true  },
+  { id: "n5", type: "system",   title: "Monthly target — 82% achieved",    body: "You're ahead of pace by 6%.",              time: "Yesterday", read: true  },
+];
